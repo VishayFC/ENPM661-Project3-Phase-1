@@ -107,3 +107,58 @@ def check_if_visited(check, cs):
     out.write(canvas[1:301, 1:401])
     
     return check, cs
+
+#this function performs actions and gets children
+def super_move_function(currentnode, cs):
+
+    def moveleft(node1, effort1):
+        child = node1.copy()
+        child[1] = child[1] - 1
+        effort1 = effort1 + 1
+        return [child, effort1]
+
+    def moveright(node1, effort1):
+        child = node1.copy()
+        child[1] = child[1] + 1
+        effort1 = effort1 + 1
+        return [child, effort1]
+
+    def moveup(node1, effort1):
+        child = node1.copy()
+        child[0] = child[0] + 1
+        effort1 = effort1 + 1
+        return [child, effort1]
+
+    def movedown(node1, effort1):
+        child = node1.copy()
+        child[0] = child[0] - 1
+        effort1 = effort1 + 1
+        return [child, effort1]
+
+    def up_left(node1, effort1):
+        child = node1.copy()
+        child[0] = child[0] + 1
+        child[1] = child[1] - 1
+        effort1 = effort1 + (2)**(1/2)
+        return [child, effort1]
+
+    def down_left(node1, effort1):
+        child = node1.copy()
+        child[0] = child[0] - 1
+        child[1] = child[1] - 1
+        effort1 = effort1 + (2)**(1/2)
+        return [child, effort1]
+
+    def up_right(node1, effort1):
+        child = node1.copy()
+        child[0] = child[0] + 1
+        child[1] = child[1] + 1
+        effort1 = effort1 + (2)**(1/2)
+        return [child, effort1]
+
+    def down_right(node1, effort1):
+        child = node1.copy()
+        child[0] = child[0] - 1
+        child[1] = child[1] + 1
+        effort1 = effort1 + (2)**(1/2)
+        return [child, effort1]
