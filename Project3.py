@@ -162,3 +162,43 @@ def super_move_function(currentnode, cs):
         child[1] = child[1] + 1
         effort1 = effort1 + (2)**(1/2)
         return [child, effort1]
+    
+    new_child = list()
+    node = currentnode.current
+    effort = cs
+    new_child.append(moveleft(node, effort))
+    new_child.append(moveright(node, effort))
+    new_child.append(moveup(node, effort))
+    new_child.append(movedown(node, effort))
+    new_child.append(up_left(node, effort))
+    new_child.append(down_left(node, effort))
+    new_child.append(up_right(node, effort))
+    new_child.append(down_right(node, effort))
+
+
+    return new_child, node
+
+#checking if the node is in obstacle space and returns ones which are not in the obstacle space in a list and the parent node
+def check_if_in_obstacle_space(children, parent1):
+    valid_children = list()
+    for i in children:
+        if canvas[(canvas_size[0] - 1) - i[0][0], i[0][1], 0] == 255:
+            continue
+        valid_children.append(i)
+
+    return valid_children, parent1
+
+
+#compares new children with goal state and adds them to the queue if the child is not the goal state
+def compare_with_goal(ultimate_children, parent1):
+    for child in ultimate_children:
+        if child[0] == goal:
+            print("\n Goal has been reached \n")
+            return child[0], parent1, child[1]
+        else:
+            duplicate_costqueue.append(child[1])
+            duplicate_costqueue.sort(reverse = True)
+            index_to_append_in_queue = duplicate_costqueue.index(child[1])
+            queue1.add(node(child[0], parent1), index_to_append_in_queue)
+
+    return None
