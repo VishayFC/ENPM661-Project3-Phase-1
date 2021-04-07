@@ -87,3 +87,23 @@ def removing_from_queue():
     check = queue1.remove()
     cs = duplicate_costqueue.pop()
     return check, cs
+
+#checking if the node is in the queue or has been visited previously and then appending the parent to the visited_list
+def check_if_visited(check, cs):
+    nod = check.current        #checking with the red value of canvas
+    if canvas[(canvas_size[0] - 1) - nod[0],nod[1],2] == 255:
+        if duplicate_costcanvas[(canvas_size[0] - 1) - nod[0],nod[1]] > cs:
+            ind = visited_child_list.index(check.current)
+            visited_parent_list[ind] = check.parent
+            visited_child_cost[ind] = cs
+
+        return None
+    canvas[(canvas_size[0] - 1) - nod[0], nod[1], 2] = 255    #marking visited by changing the color of red band
+    duplicate_costcanvas[(canvas_size[0] - 1) - nod[0], nod[1],0] = cs
+    visited_child_list.append(check.current)
+    visited_parent_list.append(check.parent)
+    visited_child_cost.append(cs)
+    
+    out.write(canvas[1:301, 1:401])
+    
+    return check, cs
