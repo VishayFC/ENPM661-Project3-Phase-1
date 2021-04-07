@@ -61,3 +61,29 @@ def obstacles(st):
         canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
         #print("coordinate is in C shape")
         return None
+
+    elif (-0.7*st[1]+1*st[0])>=(73.4-a) and (st[0]+1.42814*st[1])>=(172.55-b) and (-0.7*st[1]+1*st[0])<=(99.81+a) and (st[0]+1.42814*st[1])<=(429.07+b):
+        canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
+        #print("coordinate is in rectangle")
+        return None
+
+    elif (st[1] >= ((canvas_size[1]-1) - cl)) or (st[1] <= cl+1):
+        canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
+        #print("coordinate is out of the map boundary")
+        return None
+
+    elif (st[0] <= cl+1) or (st[0] >= ((canvas_size[0] -1) - cl)):
+        canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
+        #print("coordinate is out of the map boundary")
+        return None
+        
+    else :
+        return st
+
+
+#removes from the queue
+def removing_from_queue():
+    
+    check = queue1.remove()
+    cs = duplicate_costqueue.pop()
+    return check, cs
