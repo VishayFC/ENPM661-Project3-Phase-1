@@ -266,3 +266,15 @@ visited_child_list.append(child_parent[0])
 visited_parent_list.append(child_parent[1])
 visited_child_cost.append(child_parent[2])
 parent_info = child_parent[1]
+
+#searching for the route to the goal node or backtracking
+route = list()
+
+while parent_info is not None:
+    for i in visited_child_list:
+        if parent_info == i:
+            parent_info = visited_parent_list[visited_child_list.index(i)]
+            canvas[(canvas_size[0] - 1) - i[0],i[1],:] = 255
+            out.write(canvas[1:301, 1:401])
+            route.append(i)
+            break
