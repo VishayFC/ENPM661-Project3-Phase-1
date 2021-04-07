@@ -278,3 +278,12 @@ while parent_info is not None:
             out.write(canvas[1:301, 1:401])
             route.append(i)
             break
+        
+canvas[canvas_size[0] - goal[0], goal[1],:] = 128
+cv2.imshow("Window",canvas[1:301, 1:401])
+
+
+out.release()
+print("\nVideo file of visualization has been saved")
+cv2.waitKey(0)
+cv2.destroyAllWindows()
