@@ -32,3 +32,32 @@ class node():
     def __init__(self, current, parent): #, cost):
         self.current = current
         self.parent = parent
+
+#defining obstacles as well as the boundaries of the map
+#st[0] = y coordinate in cartesian space     st[1] = x coordinate in cartesian space
+def obstacles(st):
+    radius = 10
+    clearance = 5
+    cl = radius + clearance
+    s1 = 0.7
+    s2 = -1.42814
+    x1 = np.arctan(s1)
+    x2 = np.arctan(s2)
+    d1 = np.cos(np.pi - x1)
+    d2 = np.cos(np.pi - x2)
+    a = -(cl / d1)
+    b = -(cl / d2)
+    if (((st[1]) - (90+1)) ** 2) + ((st[0] - (70+1)) ** 2) <= ((35+cl)**2):
+        canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
+        #print("coordinate is in circle")
+        return None
+
+    elif (((st[1] - (246+1)) / (60+cl)) ** 2) + (((st[0] - (145+1)) / (30+cl)) ** 2) <= 1:
+        canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
+        #print("coordinate is in ellipse")
+        return None
+    
+    elif (st[0] <= ((280+1) + cl) and st[1]>=((200+1)-cl) and st[0]>=((230+1)-cl) and st[1]<=((230+1)+cl)) and not (st[0]<=((270+1)-cl) and st[1]>=((210+1)+cl) and st[0]>=((240+1)+cl) and st[1]<=((230+1)+cl)):
+        canvas[canvas_size[0]-1-st[0]][st[1]][0] = 255
+        #print("coordinate is in C shape")
+        return None
