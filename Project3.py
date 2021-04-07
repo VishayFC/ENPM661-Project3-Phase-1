@@ -218,3 +218,34 @@ for_frames = list()
 for i in range(canvas_size[0]):
     for j in range(canvas_size[1]):
         obstacles([i,j])
+
+#taking the start and goal node from the user and checking if in obstacle space
+n = 1
+while n > 0:
+    start = list()
+    goal = list()
+    x1 = input("Enter the x co-ordinate of the start point: ")
+    y1 = input("Enter the y co-ordinate of the start point: ")
+    x2 = input("Enter the x co-ordinate of the goal point: ")
+    y2 = input("Enter the y co-ordinate of the goal point: ")
+    start.append(int(y1)+1)
+    start.append(int(x1)+1)
+    goal.append(int(y2)+1)
+    goal.append(int(x2)+1)
+    lis = [start, goal]
+    strt = list()
+    count = 0
+    for i in lis:
+        strt.append(obstacles(i))
+    if strt[0] == None or strt[1] == None:
+        print("Error: One of the entered point is either in obstacle space or out of map boundary")
+        continue
+    else:
+        n = 0
+    print(start, goal)
+
+
+first_node = node(start, None)
+queue1 = queue()
+queue1.add(first_node,0)
+duplicate_costqueue.append(0)
