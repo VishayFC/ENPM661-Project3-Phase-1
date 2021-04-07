@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-out = cv2.VideoWriter('Dijsktra_output.mp4',cv2.VideoWriter_fourcc(*'mp4v'), 60, (400,300))
+#out = cv2.VideoWriter('Dijsktra_output.mp4',cv2.VideoWriter_fourcc(*'mp4v'), 60, (400,300))
 #defining the queue class to use as a data structure
 class queue():
     def __init__(self):
