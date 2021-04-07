@@ -249,3 +249,20 @@ first_node = node(start, None)
 queue1 = queue()
 queue1.add(first_node,0)
 duplicate_costqueue.append(0)
+
+#calling the main functions of the Dijkstra
+while True:
+    new_parent = None
+    while new_parent is None:
+        new_node, cos = removing_from_queue()
+        new_parent= check_if_visited(new_node, cos)
+    children_list, parent = super_move_function(new_parent[0], new_parent[1])
+    filtered_children, same_parent = check_if_in_obstacle_space(children_list, parent)
+    child_parent = compare_with_goal(filtered_children, same_parent)
+    if child_parent is not None:
+        break
+
+visited_child_list.append(child_parent[0])
+visited_parent_list.append(child_parent[1])
+visited_child_cost.append(child_parent[2])
+parent_info = child_parent[1]
