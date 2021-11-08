@@ -1,24 +1,28 @@
-#How to run the code #Project 3 Phase 1 Dijsktra's Algorithm
+## Dijsktra's Algorithm - Project 3 Phase 1
 
-Recommended Python : Python 3
+Implementation of Dijsktra's Path Planning Algorithm
 
-Recommended IDE : SPYDER
+## How to run the code
 
-Imported Libraries : Numpy , Opencv
+-- Recommended Python : Python 3
 
-1> The file named Project3_Phase_1.py is the main code and will ask for the start and goal points when the program begins.
+-- Recommended IDE : SPYDER
 
-2> Please make sure to import the right libraries.
+-- Imported Libraries : Numpy , Opencv
 
-3> Please note that the Origin is at the left bottom position (Cartesian Space Origin) when giving input points.
+    1> The file named Project3_Phase_1.py is the main code and will ask for the start and goal points when the program begins.
 
-4> Visualization is saved as a .mp4 file in the same directory as the code.
+    2> Please make sure to import the right libraries.
 
-5> If the saved video file is not displaying the video correctly, then it's the problem of the media player. Try running the video in a different media player. 
+    3> Please note that the Origin is at the left bottom position (Cartesian Space Origin) when giving input points.
 
-6> The visualization is done at run time but is not displayed and the video is saved after the writing is done.
+    4> Visualization is saved as a .mp4 file in the same directory as the code.
 
-7> Please make sure the start and goal points are not in obstacle space or out of map boundary. 
+    5> If the saved video file is not displaying the video correctly, then it's the problem of the media player. Try running the video in a different media player. 
+
+    6> The visualization is done at run time but is not displayed and the video is saved after the writing is done.
+
+    7> Please make sure the start and goal points are not in obstacle space or out of map boundary. 
 
 
 
